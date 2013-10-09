@@ -13,7 +13,7 @@ post '/rolls' do
   @roll = value ? Roll.create({ value: value }) : Roll.create
   
   if request.xhr?
-    
+    erb :_partial, :layout => false
   else
     erb :index  # default to rendering page
   end

@@ -1,10 +1,13 @@
 $(document).ready(function() {
-  $("#ajax_interception").submit(function(event) {
-      event.preventDefault();
-      var url = $(this).attr("action");
+  $("#ajax_interception").submit(function(event) { //add ajax interceptor as class in form. Upon event of 'submit' start this behavior (find something 'listener')
+      event.preventDefault(); //first prevent default
+      var url = $(this).attr("action"); //then grab action attr within same html location (grab action attribute)
       // console.log(this);
-      // console.log(url);
-
+      // console.log(url); //'/roll'
+      $.post(url, function(response) { //use that attribute to replace old action with new
+        console.log(response); //returns the partial - img tag (the image)
+      $("#die").html(response); //html replaces everything inside of div as opposed to append which adds things to the end (where to put the image)
+    });
     });
 
   // PSEUDO-CODE:
