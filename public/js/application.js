@@ -1,4 +1,11 @@
-$(document).ready(function () {
+$(document).ready(function() {
+  $("#ajax_interception").submit(function(event) {
+      event.preventDefault();
+      var url = $(this).attr("action");
+      // console.log(this);
+      // console.log(url);
+
+    });
 
   // PSEUDO-CODE:
   //   1- intercept the form submission event using jQuery
